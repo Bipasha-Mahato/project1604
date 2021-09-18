@@ -1,0 +1,614 @@
+
+
+<html>
+  <head>
+  <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+      SDN login
+    </title>
+
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css"> -->
+
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+  <style type="text/css">
+
+   body{
+    margin:0;
+    color:#6a6f8c;
+    /* background: url(assets/img/background_img.png_new.jfif);
+    height: 900px;
+   overflow-y: hidden;
+   overflow-x: hidden; */
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: centre;
+    font:600 16px/18px 'Open Sans',sans-serif;
+  }
+  *,:after,:before{box-sizing:border-box}
+  .clearfix:after,.clearfix:before{content:'';display:table}
+  .clearfix:after{clear:both;display:block}
+  a{color:inherit;text-decoration:none}
+
+  .login-wrap{
+    width:100%;
+    margin:auto;
+    max-width: 390px;
+    min-height:467px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    background: white;
+    box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+    align-items: center;
+    z-index: 0;
+    border:none;
+    border-radius:5%;
+  }
+
+
+
+  .login-html{
+    width:100%;
+    height:389px;
+    position:absolute;
+    padding:20px 70px 50px 70px;
+
+    background:rgba(145, 130, 116,.5);
+
+
+    border: 5px solid white;
+
+  }
+  .login-html .sign-in-htm,
+  .login-html .sign-up-htm{
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    position:absolute;
+    transform:rotateY(180deg);
+    backface-visibility:hidden;
+    transition:all .4s linear;
+  }
+  .login-html .sign-in,
+  .login-html .sign-up,
+  .login-form .group .check{
+    display:none;
+  }
+  .login-html .tab,
+  .login-form .group .label{
+    text-transform:capitalize;
+  }
+
+
+
+  .login-html .tab{
+    font-size:22px;
+    margin-right:15px;
+    padding-bottom:5px;
+    margin:0 15px 10px 0;
+    display:inline-block;
+    border-bottom:2px solid transparent;
+
+  }
+  .login-html .sign-in:checked + .tab,
+  .login-html .sign-up:checked + .tab{
+    color:#fff;
+
+    border-color:#fff; /*butttom border color*/
+  }
+  .login-form{
+    min-height:345px;
+    position:relative;
+    perspective:1000px;
+    transform-style:preserve-3d;
+  }
+
+  .login-form .group{
+    margin-bottom:15px;
+  }
+  .login-form .group .label,
+  .login-form .group .input{
+    width:100%;
+    color:#fff;
+
+    display:block;
+  }
+
+  .login-form .group .button{
+    width:100%;
+    color:#fff;
+    /*margin-left: 50px;*/
+    display:block;
+  }
+  .login-form .group .input{
+    border:none;
+    padding:15px 20px;
+
+    background:rgba(255,255,255,.1);
+  }
+  .login-form .group .button{
+    /* border:none; */
+    padding:15px 20px;
+    border-radius: 50px;
+
+
+
+  }
+
+  .login-form .group .label{
+    color:#aaa;
+    font-size:12px;
+  }
+  .login-form .group .button{
+    background: #363c99;
+
+  }
+  .login-form .group label .icon{
+    width:15px;
+    height:15px;
+    border-radius:2px;
+    position:relative;
+    display:inline-block;
+    background:rgba(255,255,255,.1);
+  }
+  .login-form .group label .icon:before,
+  .login-form .group label .icon:after{
+    content:'';
+    width:10px;
+    height:2px;
+    background:#fff;
+    position:absolute;
+    transition:all .2s ease-in-out 0s;
+  }
+  .login-form .group label .icon:before{
+    left:3px;
+    width:5px;
+    bottom:6px;
+    transform:scale(0) rotate(0);
+  }
+  .login-form .group label .icon:after{
+    top:6px;
+    right:0;
+    transform:scale(0) rotate(0);
+  }
+  .login-form .group .check:checked + label{
+    color:#fff;
+  }
+  .login-form .group .check:checked + label .icon{
+    background:#1161ee;
+  }
+  .login-form .group .check:checked + label .icon:before{
+    transform:scale(1) rotate(45deg);
+  }
+  .login-form .group .check:checked + label .icon:after{
+    transform:scale(1) rotate(-45deg);
+  }
+  .login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
+  transform:rotate(0);
+}
+.login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
+  transform:rotate(0);
+}
+
+  .hr{
+    height:2px;
+    margin:60px 0 50px 0;
+    background:rgba(255,255,255,.2);
+  }
+  .foot-lnk{
+    text-align:center;
+  }
+
+  .iconid {
+              padding: 10px;
+              color: green;
+              min-width: 50px;
+              text-align: center;
+          }
+
+input{
+  text-decoration: none;
+  border: none;
+  style : none;
+}
+
+
+#user , #pass {
+  border-bottom: 2px solid black;
+  font-size: 16px;
+  text-align: center;
+  max-width: 70%;
+}
+
+.login-header{
+  font-size: 30px;
+  font-family: Tahoma, sans-serif;
+}
+
+#remember{
+  float: right;
+  text-align: center;
+  padding-right : 54px;
+  padding-bottom: 5px;
+    }
+
+.float-container{
+  position: absolute;
+  right: 10;
+  bottom: 10;
+
+}
+
+#sign-tab{
+  border-radius: 2px;
+
+}
+
+.powered-by{
+  padding-bottom : 10px;
+  display : inline-block;
+  padding-right: 7px;
+}
+
+.name-group{
+  position : relative;
+  display : inline-block;
+  bottom : 5;
+  font-size : 26px;
+}
+
+/* .navbar{
+  background-color : #4ceaf5;
+  color : #364181;
+} */
+
+/* .navbar-inverse .navbar-brand {
+    color : #364181;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #364181;
+}
+
+
+
+.navbar-header{
+  letter-spacing: 1px;
+  font-weight: 100px;
+} */
+
+input[type="email"], input[type="password"], input[type="text"]
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 42px;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index : 1100;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: rgba(83,212,235,0.7);
+    font-family: "Poppins", sans-serif;
+}
+
+.logo {
+    color: rgb(39, 39, 39);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 28px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: rgb(39, 39, 39);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.burger {
+    display: none;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: rgb(39, 39, 39);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 1024px) {
+    .nav-links {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: rgba(6,181,212,0.9);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    .burger {
+        display: block;
+        cursor: pointer;
+    }
+}
+
+.nav-active {
+        transform: translateX(0%);
+}
+
+a:hover {
+  color :#6a6f8c;
+  text-decoration: none;
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+img{
+  vertical-align: inherit;
+  height: 40px;
+  padding-top: 6px;
+  bottom: 0.8;
+}
+
+  .bg {
+    /* The image used */
+    background-image: url("static/img/background_img.png_new.jfif");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+@media (max-width : 768px) {
+  .container{
+    margin-top : 70px;
+  }
+
+  .login-wrap{
+    max-width: 320px;
+    max-height: 60vh;
+  }
+
+
+
+}
+
+@media (max-height: 640px) {
+  .login-wrap{
+    min-height: 400px;
+
+  }
+}
+
+
+
+
+
+
+.login-form .group .label, .login-form .group .input{
+  color: black;
+}
+
+</style>
+
+</head>
+
+<body class="bg">
+
+  <!-- <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.sensordropsnetworks.com/">Sensordropsnetworks</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="myNavbar">
+
+        <ul class="nav navbar-nav" style="float : right;">
+
+
+          <li ><a href="#">About</a></li>
+          <li ><a href="#">Manual</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp Account</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </nav> -->
+
+  <nav>
+    <div class="logo">
+        <h4><a href="http://www.sensordropsnetworks.com/" target="_blank">Sensordropsnetworks</a></h4>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#">Manual</a></li>
+        <li><a href="http://www.sensordropsnetworks.com/">About</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp&nbspAccount</a></li>
+
+    </ul>
+    <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+
+
+  <div class="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+  </div>
+</nav>
+
+
+  <div class="container-fluid">
+   <div class="login-wrap" id="log">
+    <Center><h2 class="login-header">LOGIN</h2></Center><br>
+
+      <div class="login-form">
+
+
+        <form method="POST" action="sdn_dashboard1.html">
+        <div class="sign-up-htm" id="adm">
+          <center><div class="group">
+            <!-- <label for="user" class="label">Username</label> -->
+            <input id="user" type="text" class="input" name="adminid" placeholder="Username" value="" onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off><span style="color: red; font-size: 12px;"></span>
+          </div></center>
+          <center><div class="group">
+            <!-- <label for="pass" class="label">Password</label> -->
+            <input id="pass" type="password" class="input" name="adminpass" data-type="password" placeholder="Password" onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off><span style="color: red; font-size: 12px;"></span>
+          </div></center><br>
+          <div class="group" id="remember" style="color: black;">
+            <input id="check" type="checkbox" class="check" checked style="border: 1px solid black;">
+            <label for="check"><span class="icon"></span><font color="black">&nbsp&nbspRemember Me</font></label>
+          </div><br>
+          <center>
+
+
+          <div class="group" id="sign-tab" style="max-width: 240px;">
+
+            <input type="submit" class="button" name="adminsubmit"  value="Sign in"><span style="color: red; font-size: 12px;"></span>
+
+          </div></center><br>
+          <div class="foot-lnk">
+            <!-- <a href="" id="msg22" style="color: red; font-size: 13px;"></a></br> -->
+            <span>Don't have an account?<a href="sign_up.html" style="margin-left: 5px; font-size: 17px; color : black;"><u>Sign up</u></a></span>
+          </div>
+
+          <div class="forgot-password" style="text-align: center; padding-top: 20px;">
+            <a target="_blank" href="#">forgot password ?</a>
+          </div>
+        </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+  </div>
+  <div class="float-container" style="z-index: 0;">
+    <footer class="footer" >
+    <div class="powered-by" style="font-size: 20px;">Powered by </div><a href="http://www.sensordropsnetworks.com/" target="_blank"><img src="static/img/Company_logo.png" alt="sdn" height="30" width="60" style="position:relative; margin-left: 5px; margin-top: 5px;"> </a>
+  </footer>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <script>
+    function navSlide() {
+    const burger = document.querySelector(".burger");
+    const nav = document.querySelector(".nav-links");
+    const navLinks = document.querySelectorAll(".nav-links li");
+
+    burger.addEventListener("click", () => {
+        //Toggle Nav
+        nav.classList.toggle("nav-active");
+
+        //Animate Links
+        navLinks.forEach((link, index) => {
+            if (link.style.animation) {
+                link.style.animation = ""
+            } else {
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.5}s`;
+            }
+        });
+        //Burger Animation
+        burger.classList.toggle("toggle");
+    });
+
+
+
+}
+
+navSlide();
+  </script>
+
+
+
+  </body>
+
+  </html>
